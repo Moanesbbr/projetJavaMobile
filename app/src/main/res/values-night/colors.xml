@@ -1,0 +1,15 @@
+<resources>
+    <!-- Dark mode colors -->
+    <color name="colorPrimary">#1565C0</color>
+    <color name="colorPrimaryDark">#0D47A1</color>
+    <color name="colorAccent">#E91E63</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="deadlineNormal">#4CAF50</color>
+    <color name="deadlineApproaching">#FFC107</color>
+    <color name="deadlineImmediate">#F44336</color>
+    <color name="deadlinePassed">#757575</color>
+    <color name="cardBackground">#303030</color>
+    <color name="textColorPrimary">#E0E0E0</color>
+    <color name="textColorSecondary">#9E9E9E</color>
+</resources> 

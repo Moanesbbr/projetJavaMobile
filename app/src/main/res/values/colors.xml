@@ -1,0 +1,17 @@
+<resources>
+    <color name="colorPrimary">#00BCD4</color>
+    <color name="colorPrimaryDark">#0097A7</color>
+    <color name="colorAccent">#FF9800</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="deadlineNormal">#26A69A</color>
+    <color name="deadlineApproaching">#FFB74D</color>
+    <color name="deadlineImmediate">#FF7043</color>
+    <color name="deadlinePassed">#90A4AE</color>
+    <color name="cardBackground">#FFFFFF</color>
+    <color name="textColorPrimary">#37474F</color>
+    <color name="textColorSecondary">#607D8B</color>
+    <color name="backgroundColor">#ECEFF1</color>
+    <color name="cardBorder">#E0E0E0</color>
+    <color name="editButtonColor">#00BCD4</color>
+</resources> 

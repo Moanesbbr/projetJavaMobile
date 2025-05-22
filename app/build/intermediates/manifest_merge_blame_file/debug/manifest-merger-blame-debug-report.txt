@@ -1,0 +1,88 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.polyscievent.tracker"
+4    android:versionCode="2"
+5    android:versionName="2.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml
+10
+11    <!-- For exporting data to external storage -->
+12    <uses-permission
+12-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:6:5-7:38
+13        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+13-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:6:22-78
+14        android:maxSdkVersion="28" />
+14-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:7:9-35
+15
+16    <application
+16-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:9:5-28:19
+17        android:allowBackup="true"
+17-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:10:9-35
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.8.0] C:\Users\rayen\.gradle\caches\transforms-3\f14ed97d16b3ab4b758c297c5ad331a0\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+19        android:debuggable="true"
+20        android:icon="@mipmap/ic_launcher"
+20-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:11:9-43
+21        android:label="@string/app_name"
+21-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:13:9-41
+22        android:roundIcon="@mipmap/ic_launcher_round"
+22-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:12:9-54
+23        android:supportsRtl="true"
+23-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:14:9-35
+24        android:testOnly="true"
+25        android:theme="@style/AppTheme" >
+25-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:15:9-40
+26        <activity
+26-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:16:9-23:20
+27            android:name="com.polyscievent.tracker.activity.MainActivity"
+27-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:17:13-50
+28            android:exported="true" >
+28-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:18:13-36
+29            <intent-filter>
+29-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:19:13-22:29
+30                <action android:name="android.intent.action.MAIN" />
+30-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:20:17-69
+30-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:20:25-66
+31
+32                <category android:name="android.intent.category.LAUNCHER" />
+32-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:21:17-77
+32-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:21:27-74
+33            </intent-filter>
+34        </activity>
+35        <activity
+35-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:24:9-27:67
+36            android:name="com.polyscievent.tracker.activity.AddEditEventActivity"
+36-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:25:13-58
+37            android:exported="false"
+37-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:26:13-37
+38            android:parentActivityName="com.polyscievent.tracker.activity.MainActivity" />
+38-->C:\Users\rayen\OneDrive\Bureau\java-mobile\app\src\main\AndroidManifest.xml:27:13-64
+39
+40        <provider
+40-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rayen\.gradle\caches\transforms-3\783814b9ae08fcf5ccc1c3f96342a9e7\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+41            android:name="androidx.startup.InitializationProvider"
+41-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rayen\.gradle\caches\transforms-3\783814b9ae08fcf5ccc1c3f96342a9e7\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+42            android:authorities="com.polyscievent.tracker.androidx-startup"
+42-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rayen\.gradle\caches\transforms-3\783814b9ae08fcf5ccc1c3f96342a9e7\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+43            android:exported="false" >
+43-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rayen\.gradle\caches\transforms-3\783814b9ae08fcf5ccc1c3f96342a9e7\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+44            <meta-data
+44-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rayen\.gradle\caches\transforms-3\783814b9ae08fcf5ccc1c3f96342a9e7\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+45                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+45-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rayen\.gradle\caches\transforms-3\783814b9ae08fcf5ccc1c3f96342a9e7\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+46                android:value="androidx.startup" />
+46-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rayen\.gradle\caches\transforms-3\783814b9ae08fcf5ccc1c3f96342a9e7\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+47            <meta-data
+47-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\rayen\.gradle\caches\transforms-3\55edd7586f643b882793766e969ddd4b\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+48                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+48-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\rayen\.gradle\caches\transforms-3\55edd7586f643b882793766e969ddd4b\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+49                android:value="androidx.startup" />
+49-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\rayen\.gradle\caches\transforms-3\55edd7586f643b882793766e969ddd4b\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+50        </provider>
+51    </application>
+52
+53</manifest>

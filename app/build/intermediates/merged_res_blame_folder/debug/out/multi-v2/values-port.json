@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.polyscievent.tracker.app-mergeDebugResources-27:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\rayen\\.gradle\\caches\\transforms-3\\9edf31e9e5a4d6df979d3cded99c3122\\transformed\\appcompat-1.5.1\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

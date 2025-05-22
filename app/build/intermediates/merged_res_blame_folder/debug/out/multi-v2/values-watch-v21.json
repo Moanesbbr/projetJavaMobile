@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.polyscievent.tracker.app-mergeDebugResources-27:/values-watch-v21/values-watch-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\rayen\\.gradle\\caches\\transforms-3\\9edf31e9e5a4d6df979d3cded99c3122\\transformed\\appcompat-1.5.1\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "from": {
+                        "startLines": "2,6,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,271,499",
+                        "endLines": "5,9,13",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "266,494,724"
+                    }
+                }
+            ]
+        }
+    ]
+}
