@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-47:12
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-48:12
+INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-48:12
+INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-48:12
+INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-48:12
 MERGED from [com.google.android.material:material:1.6.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\c97e3a56552c605c20ee292597e4bf82\transformed\material-1.6.1\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\25db12c48ef92eb94dd5711ab09311c4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.5.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\98ad5ca134daee3c5d569ec00c69aded\transformed\appcompat-resources-1.5.1\AndroidManifest.xml:17:1-22:12
@@ -62,9 +62,13 @@ uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:8:5-80
 	android:name
 		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:8:22-77
+uses-permission#android.permission.READ_MEDIA_IMAGES
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:9:5-76
+	android:name
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:9:22-73
 application
-ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:10:5-45:19
-INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:10:5-45:19
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:11:5-46:19
+INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:11:5-46:19
 MERGED from [com.google.android.material:material:1.6.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\c97e3a56552c605c20ee292597e4bf82\transformed\material-1.6.1\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.6.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\c97e3a56552c605c20ee292597e4bf82\transformed\material-1.6.1\AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\25db12c48ef92eb94dd5711ab09311c4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -84,61 +88,61 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Tr
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.8.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\b58fbd3358f3eaba6cbe80ca9e9904ea\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:15:9-35
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:16:9-35
 	android:label
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:14:9-41
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:15:9-41
 	android:roundIcon
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:13:9-54
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:14:9-54
 	android:icon
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:12:9-43
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:13:9-43
 	android:allowBackup
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:12:9-35
 	android:theme
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:16:9-40
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:17:9-40
 activity#com.polyscievent.tracker.activity.SignInActivity
-ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:18:9-25:20
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:19:9-26:20
 	android:exported
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:20:13-36
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:21:13-36
 	android:name
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:19:13-52
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:20:13-52
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:21:13-24:29
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:22:13-25:29
 action#android.intent.action.MAIN
-ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:22:17-69
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:23:17-69
 	android:name
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:22:25-66
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:23:17-77
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:23:27-74
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:24:27-74
 activity#com.polyscievent.tracker.activity.SignUpActivity
-ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:27:9-29:40
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:28:9-30:40
 	android:exported
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:29:13-37
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:30:13-37
 	android:name
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:28:13-52
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:29:13-52
 activity#com.polyscievent.tracker.activity.MainActivity
-ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:31:9-34:20
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:32:9-35:20
 	android:exported
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:33:13-36
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:34:13-36
 	android:name
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:32:13-50
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:33:13-50
 activity#com.polyscievent.tracker.activity.AddEditEventActivity
-ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:36:9-39:67
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:37:9-40:67
 	android:parentActivityName
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:39:13-64
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:40:13-64
 	android:exported
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:38:13-37
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:39:13-37
 	android:name
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:37:13-58
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:38:13-58
 activity#com.polyscievent.tracker.activity.ViewEventActivity
-ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:41:9-44:67
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:42:9-45:67
 	android:parentActivityName
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:44:13-64
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:45:13-64
 	android:exported
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:43:13-37
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:44:13-37
 	android:name
-		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:42:13-55
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:43:13-55
 uses-sdk
 INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml

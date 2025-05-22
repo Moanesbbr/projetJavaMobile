@@ -14,6 +14,7 @@
         android:maxSdkVersion="28" />
     <!-- For picking images -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <application
         android:allowBackup="true"

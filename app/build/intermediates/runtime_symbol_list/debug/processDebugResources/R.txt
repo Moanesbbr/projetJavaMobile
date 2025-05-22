@@ -2798,6 +2798,7 @@ int id jumpToEnd 0x7f080101
 int id jumpToStart 0x7f080102
 int id labeled 0x7f080103
 int id layout 0x7f080104
+int id layout_image_picker 0x7f08021c
 int id left 0x7f080105
 int id leftToRight 0x7f080106
 int id legacy 0x7f080107
@@ -3331,6 +3332,7 @@ int string error_empty_name 0x7f0f003a
 int string error_empty_organizer 0x7f0f003b
 int string error_empty_theme 0x7f0f003c
 int string error_icon_content_description 0x7f0f003d
+int string error_loading_image 0x7f0f00b5
 int string error_picking_image 0x7f0f003e
 int string error_saving_image 0x7f0f003f
 int string event_date 0x7f0f0040

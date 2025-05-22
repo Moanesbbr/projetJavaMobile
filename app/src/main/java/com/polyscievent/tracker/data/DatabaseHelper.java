@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     
     // Database info
     private static final String DATABASE_NAME = "scievents.db";
-    private static final int DATABASE_VERSION = 3;  // Increased version for schema changes
+    private static final int DATABASE_VERSION = 4;  // Increased version for image_uri column
     
     // Singleton instance
     private static DatabaseHelper sInstance;
@@ -95,6 +95,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 Log.e(TAG, "Error migrating events table: " + e.getMessage());
                 db.execSQL(EventContract.EventEntry.SQL_DELETE_TABLE);
                 db.execSQL(EventContract.EventEntry.SQL_CREATE_TABLE);
+            }
+        }
+
+        if (oldVersion < 4) {
+            try {
+                // Add image_uri column if it doesn't exist
+                db.execSQL("ALTER TABLE " + EventContract.EventEntry.TABLE_NAME + 
+                        " ADD COLUMN " + EventContract.EventEntry.COLUMN_NAME_IMAGE_URI + " TEXT");
+                Log.d(TAG, "Added image_uri column to events table");
+            } catch (Exception e) {
+                Log.e(TAG, "Error adding image_uri column: " + e.getMessage());
             }
         }
     }

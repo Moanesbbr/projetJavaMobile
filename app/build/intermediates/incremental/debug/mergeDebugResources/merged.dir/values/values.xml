@@ -1653,6 +1653,7 @@
     <string name="error_empty_organizer">Organizer cannot be empty</string>
     <string name="error_empty_theme">Theme cannot be empty</string>
     <string name="error_icon_content_description">Error</string>
+    <string name="error_loading_image">Error loading image</string>
     <string name="error_picking_image">Error picking image</string>
     <string name="error_saving_image">Error saving image</string>
     <string name="event_date">Event Date</string>

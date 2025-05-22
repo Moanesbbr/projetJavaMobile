@@ -62,12 +62,30 @@ public class AddEditEventActivity extends AppCompatActivity {
     private Handler mMainHandler;
     
     // Image picker launcher
-    private final ActivityResultLauncher<String> mImagePicker = registerForActivityResult(
-            new ActivityResultContracts.GetContent(),
-            uri -> {
-                if (uri != null) {
-                    mSelectedImageUri = uri;
-                    mEventImageView.setImageURI(uri);
+    private final ActivityResultLauncher<Intent> mImagePicker = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                    Uri uri = result.getData().getData();
+                    if (uri != null) {
+                        try {
+                            // Take a persistent URI permission
+                            final int takeFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION;
+                            getContentResolver().takePersistableUriPermission(uri, takeFlags);
+                            
+                            mSelectedImageUri = uri;
+                            try {
+                                mEventImageView.setImageURI(null); // Clear the old image
+                                mEventImageView.setImageURI(uri);
+                            } catch (Exception e) {
+                                Log.e(TAG, "Error setting image: " + e.getMessage());
+                                Toast.makeText(this, R.string.error_loading_image, Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (SecurityException e) {
+                            Log.w(TAG, "Could not take URI permission: " + e.getMessage());
+                            Toast.makeText(this, R.string.error_saving_image, Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 }
             });
     
@@ -134,7 +152,7 @@ public class AddEditEventActivity extends AppCompatActivity {
     
     private void setUpListeners() {
         // Set up image picker
-        mPickImageButton.setOnClickListener(v -> mImagePicker.launch("image/*"));
+        mPickImageButton.setOnClickListener(v -> launchImagePicker());
         
         // Set up event date picker
         mEventDateEditText.setOnClickListener(v -> {
@@ -215,9 +233,18 @@ public class AddEditEventActivity extends AppCompatActivity {
                     mSubmissionDeadlineEditText.setText(DateUtils.formatDate(event.getSubmissionDeadline()));
                     
                     // Load image if available
-                    if (event.getImageUri() != null && !event.getImageUri().isEmpty()) {
-                        mSelectedImageUri = Uri.parse(event.getImageUri());
-                        mEventImageView.setImageURI(mSelectedImageUri);
+                    String imageUri = event.getImageUri();
+                    if (imageUri != null && !imageUri.isEmpty()) {
+                        try {
+                            mSelectedImageUri = Uri.parse(imageUri);
+                            mEventImageView.setImageURI(null); // Clear the old image
+                            mEventImageView.setImageURI(mSelectedImageUri);
+                        } catch (Exception e) {
+                            Log.e(TAG, "Error loading image: " + e.getMessage());
+                            Toast.makeText(AddEditEventActivity.this, R.string.error_loading_image, Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        mEventImageView.setImageResource(R.drawable.ic_event_placeholder);
                     }
                 } else {
                     Toast.makeText(AddEditEventActivity.this, "Error loading event", Toast.LENGTH_LONG).show();
@@ -284,8 +311,21 @@ public class AddEditEventActivity extends AppCompatActivity {
         long eventDate = mEventDateCalendar.getTimeInMillis();
         long submissionDeadline = mSubmissionDeadlineCalendar.getTimeInMillis();
         
-        Event event = new Event(name, location, eventDate, organizer, theme, submissionDeadline, mUserId, 
-                mSelectedImageUri != null ? mSelectedImageUri.toString() : "");
+        // Get the current image URI or keep the existing one in edit mode
+        String imageUri = "";
+        if (mSelectedImageUri != null) {
+            imageUri = mSelectedImageUri.toString();
+            Log.d(TAG, "Saving event with image URI: " + imageUri);
+        } else if (mEditMode) {
+            DatabaseHelper dbHelper = DatabaseHelper.getInstance(this);
+            Event existingEvent = dbHelper.getEvent(mEventId);
+            if (existingEvent != null && existingEvent.getImageUri() != null) {
+                imageUri = existingEvent.getImageUri();
+                Log.d(TAG, "Keeping existing image URI: " + imageUri);
+            }
+        }
+        
+        final Event event = new Event(name, location, eventDate, organizer, theme, submissionDeadline, mUserId, imageUri);
         
         if (mEditMode) {
             event.setId(mEventId);
@@ -304,6 +344,19 @@ public class AddEditEventActivity extends AppCompatActivity {
                 }
             });
         });
+    }
+    
+    private void launchImagePicker() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        try {
+            mImagePicker.launch(intent);
+        } catch (Exception e) {
+            Log.e(TAG, "Error launching image picker: " + e.getMessage());
+            Toast.makeText(this, R.string.error_picking_image, Toast.LENGTH_SHORT).show();
+        }
     }
     
     @Override

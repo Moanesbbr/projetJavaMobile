@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -100,8 +101,17 @@ public class ViewEventActivity extends AppCompatActivity {
             mMainHandler.post(() -> {
                 if (event != null) {
                     // Set event image if available
-                    if (event.getImageUri() != null && !event.getImageUri().isEmpty()) {
-                        mEventImageView.setImageURI(Uri.parse(event.getImageUri()));
+                    String imageUri = event.getImageUri();
+                    if (imageUri != null && !imageUri.isEmpty()) {
+                        try {
+                            mEventImageView.setImageURI(null); // Clear the old image
+                            mEventImageView.setImageURI(Uri.parse(imageUri));
+                        } catch (Exception e) {
+                            Toast.makeText(this, R.string.error_loading_image, Toast.LENGTH_SHORT).show();
+                            mEventImageView.setImageResource(R.drawable.ic_event_placeholder);
+                        }
+                    } else {
+                        mEventImageView.setImageResource(R.drawable.ic_event_placeholder);
                     }
                     
                     // Set text fields

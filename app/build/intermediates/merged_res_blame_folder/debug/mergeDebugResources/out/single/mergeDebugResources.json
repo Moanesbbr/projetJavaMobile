@@ -4,6 +4,10 @@
         "source": "C:\\Users\\Traveltodo\\.gradle\\daemon\\8.10.2\\com.polyscievent.tracker.app-main-30:\\layout\\activity_sign_in.xml"
     },
     {
+        "merged": "C:\\Users\\Traveltodo\\.gradle\\daemon\\8.10.2\\com.polyscievent.tracker.app-debug-28:\\drawable_ic_event_placeholder.xml.flat",
+        "source": "C:\\Users\\Traveltodo\\.gradle\\daemon\\8.10.2\\com.polyscievent.tracker.app-main-30:\\drawable\\ic_event_placeholder.xml"
+    },
+    {
         "merged": "C:\\Users\\Traveltodo\\.gradle\\daemon\\8.10.2\\com.polyscievent.tracker.app-debug-28:\\layout_activity_add_edit_event.xml.flat",
         "source": "C:\\Users\\Traveltodo\\.gradle\\daemon\\8.10.2\\com.polyscievent.tracker.app-main-30:\\layout\\activity_add_edit_event.xml"
     },
@@ -32,10 +36,6 @@
         "source": "C:\\Users\\Traveltodo\\.gradle\\daemon\\8.10.2\\com.polyscievent.tracker.app-main-30:\\drawable\\deadline_tag_background.xml"
     },
     {
-        "merged": "com.polyscievent.tracker.app-debug-28:/drawable_ic_event_placeholder.xml.flat",
-        "source": "com.polyscievent.tracker.app-main-30:/drawable/ic_event_placeholder.xml"
-    },
-    {
         "merged": "C:\\Users\\Traveltodo\\.gradle\\daemon\\8.10.2\\com.polyscievent.tracker.app-debug-28:\\layout_list_item_event.xml.flat",
         "source": "C:\\Users\\Traveltodo\\.gradle\\daemon\\8.10.2\\com.polyscievent.tracker.app-main-30:\\layout\\list_item_event.xml"
     },
@@ -50,6 +50,10 @@
     {
         "merged": "C:\\Users\\Traveltodo\\.gradle\\daemon\\8.10.2\\com.polyscievent.tracker.app-debug-28:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\Traveltodo\\.gradle\\daemon\\8.10.2\\com.polyscievent.tracker.app-main-30:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.polyscievent.tracker.app-debug-28:/layout_activity_add_edit_event.xml.flat",
+        "source": "com.polyscievent.tracker.app-main-30:/layout/activity_add_edit_event.xml"
     },
     {
         "merged": "C:\\Users\\Traveltodo\\.gradle\\daemon\\8.10.2\\com.polyscievent.tracker.app-debug-28:\\layout_activity_main.xml.flat",

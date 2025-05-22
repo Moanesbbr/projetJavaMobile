@@ -33,7 +33,7 @@ public class Event {
         this.theme = theme;
         this.submissionDeadline = submissionDeadline;
         this.userId = userId;
-        this.imageUri = imageUri;
+        this.imageUri = imageUri != null ? imageUri : ""; // Handle null image URI
     }
     
     /**
@@ -49,6 +49,7 @@ public class Event {
         this.theme = theme;
         this.submissionDeadline = submissionDeadline;
         this.userId = userId;
+        this.imageUri = ""; // Default empty image URI
     }
     
     // Getters and Setters

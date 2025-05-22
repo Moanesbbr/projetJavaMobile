@@ -2799,6 +2799,7 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id layout_image_picker
 id left
 id leftToRight
 id legacy
@@ -3332,6 +3333,7 @@ string error_empty_name
 string error_empty_organizer
 string error_empty_theme
 string error_icon_content_description
+string error_loading_image
 string error_picking_image
 string error_saving_image
 string event_date
