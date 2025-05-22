@@ -21,7 +21,7 @@
 
     <!-- Main Activity -->
     <string name="add_event">Add Event</string>
-    <string name="no_events">No scientific events added yet</string>
+    <string name="no_events">No events , Try adding one</string>
 
     <!-- Add/Edit Activity -->
     <string name="add_new_event">Add New Event</string>

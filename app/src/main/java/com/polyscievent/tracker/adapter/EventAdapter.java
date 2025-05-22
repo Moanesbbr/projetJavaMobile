@@ -18,6 +18,7 @@ import com.polyscievent.tracker.activity.MainActivity;
 import com.polyscievent.tracker.model.Event;
 import com.polyscievent.tracker.util.Constants;
 import com.polyscievent.tracker.util.DateUtils;
+import com.polyscievent.tracker.util.UserSession;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     private final Context mContext;
     private List<Event> mEvents;
     private final EventItemClickListener mListener;
+    private final long mCurrentUserId;
     
     /**
      * Interface for handling event item clicks
@@ -48,6 +50,9 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         mContext = context;
         mEvents = new ArrayList<>();
         mListener = listener;
+        // Get current user ID from UserSession
+        UserSession userSession = new UserSession(context);
+        mCurrentUserId = userSession.getUserDetails().getId();
     }
     
     @NonNull
@@ -95,17 +100,24 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
             }
         });
         
+        // Only show edit and delete buttons for events owned by the current user
+        boolean isCurrentUserEvent = event.getUserId() == mCurrentUserId;
+        holder.editButton.setVisibility(isCurrentUserEvent ? View.VISIBLE : View.GONE);
+        holder.deleteButton.setVisibility(isCurrentUserEvent ? View.VISIBLE : View.GONE);
+        
         // Handle edit button click
         holder.editButton.setOnClickListener(v -> {
-            Intent intent = new Intent(mContext, AddEditEventActivity.class);
-            intent.putExtra(Constants.EXTRA_EVENT_ID, event.getId());
-            intent.putExtra(Constants.EXTRA_USER_ID, event.getUserId());  // Pass the user ID
-            ((MainActivity) mContext).startActivityForResult(intent, Constants.REQUEST_EDIT_EVENT);
+            if (isCurrentUserEvent) {
+                Intent intent = new Intent(mContext, AddEditEventActivity.class);
+                intent.putExtra(Constants.EXTRA_EVENT_ID, event.getId());
+                intent.putExtra(Constants.EXTRA_USER_ID, event.getUserId());
+                ((MainActivity) mContext).startActivityForResult(intent, Constants.REQUEST_EDIT_EVENT);
+            }
         });
         
         // Handle delete button click
         holder.deleteButton.setOnClickListener(v -> {
-            if (mListener != null) {
+            if (isCurrentUserEvent && mListener != null) {
                 mListener.onEventDeleteClick(event);
             }
         });

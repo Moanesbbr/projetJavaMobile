@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.Even
         // Check if we have events to export
         mExecutorService.execute(() -> {
             DatabaseHelper dbHelper = DatabaseHelper.getInstance(this);
-            final List<Event> events = dbHelper.getEventsByUserId(mCurrentUser.getId());
+            final List<Event> events = dbHelper.getAllEvents();
             
             mMainHandler.post(() -> {
                 if (events.isEmpty()) {
@@ -199,8 +199,8 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.Even
             // Get the database helper instance
             DatabaseHelper dbHelper = DatabaseHelper.getInstance(MainActivity.this);
             
-            // Get all events for the current user, sorted by submission deadline
-            final List<Event> events = dbHelper.getEventsByUserId(mCurrentUser.getId());
+            // Get all events from all users, sorted by submission deadline
+            final List<Event> events = dbHelper.getAllEvents();
             
             // Update the UI on the main thread
             mMainHandler.post(() -> {

@@ -1753,7 +1753,7 @@
     <string description="a11y string to indicate this button switches the user to choosing a year [CHAR_LIMIT=NONE]" name="mtrl_picker_toggle_to_year_selection">Tap to switch to selecting a year</string>
     <string description="Button text to indicate that the widget will save the user&apos;s selection [CHAR_LIMIT=16]" name="mtrl_timepicker_confirm">OK</string>
     <string name="no_account">Don\'t have an account?</string>
-    <string name="no_events">No scientific events added yet</string>
+    <string name="no_events">No events , Try adding one</string>
     <string name="password">Password</string>
     <string name="password_mismatch">Passwords don\'t match</string>
     <string name="password_toggle_content_description">Show password</string>

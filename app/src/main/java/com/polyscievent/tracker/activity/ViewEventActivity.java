@@ -38,9 +38,7 @@ public class ViewEventActivity extends AppCompatActivity {
     
     private ExecutorService mExecutorService;
     private Handler mMainHandler;
-    private long mEventId = -1;
-    
-    @Override
+        private long mEventId = -1;    private long mCurrentUserId;        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_event);
