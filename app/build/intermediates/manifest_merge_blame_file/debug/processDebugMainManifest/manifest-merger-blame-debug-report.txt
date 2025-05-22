@@ -24,7 +24,7 @@
 17-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:9:22-73
 18
 19    <application
-19-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:11:5-55:19
+19-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:11:5-60:19
 20        android:allowBackup="true"
 20-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:12:9-35
 21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -106,28 +106,36 @@
 61-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:53:13-45
 62            android:parentActivityName="com.polyscievent.tracker.activity.MainActivity" />
 62-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:54:13-64
-63
-64        <provider
-64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-65            android:name="androidx.startup.InitializationProvider"
-65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-66            android:authorities="com.polyscievent.tracker.androidx-startup"
-66-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-67            android:exported="false" >
-67-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-68            <meta-data
-68-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-69                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-69-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-70                android:value="androidx.startup" />
-70-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-71            <meta-data
-71-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\043ae1193fd0f0068354df104ffde5d6\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-72                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-72-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\043ae1193fd0f0068354df104ffde5d6\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-73                android:value="androidx.startup" />
-73-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\043ae1193fd0f0068354df104ffde5d6\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-74        </provider>
-75    </application>
-76
-77</manifest>
+63        <activity
+63-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:56:9-59:67
+64            android:name="com.polyscievent.tracker.activity.SettingsActivity"
+64-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:57:13-54
+65            android:label="@string/settings"
+65-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:58:13-45
+66            android:parentActivityName="com.polyscievent.tracker.activity.MainActivity" />
+66-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:59:13-64
+67
+68        <provider
+68-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+69            android:name="androidx.startup.InitializationProvider"
+69-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+70            android:authorities="com.polyscievent.tracker.androidx-startup"
+70-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+71            android:exported="false" >
+71-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+72            <meta-data
+72-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+73                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+73-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+74                android:value="androidx.startup" />
+74-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+75            <meta-data
+75-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\043ae1193fd0f0068354df104ffde5d6\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+76                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+76-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\043ae1193fd0f0068354df104ffde5d6\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+77                android:value="androidx.startup" />
+77-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\043ae1193fd0f0068354df104ffde5d6\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+78        </provider>
+79    </application>
+80
+81</manifest>

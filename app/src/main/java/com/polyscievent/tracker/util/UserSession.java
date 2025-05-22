@@ -70,4 +70,15 @@ public class UserSession {
         editor.clear();
         editor.apply();
     }
+
+    /**
+     * Update user details in the session
+     * @param user Updated user details
+     */
+    public void updateUserDetails(User user) {
+        editor.putLong(KEY_USER_ID, user.getId());
+        editor.putString(KEY_USER_EMAIL, user.getEmail());
+        editor.putString(KEY_USER_NAME, user.getFullName());
+        editor.apply();
+    }
 } 

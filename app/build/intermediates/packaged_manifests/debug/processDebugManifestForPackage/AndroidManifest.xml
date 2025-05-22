@@ -60,6 +60,10 @@
             android:name="com.polyscievent.tracker.activity.WishlistActivity"
             android:label="@string/wishlist"
             android:parentActivityName="com.polyscievent.tracker.activity.MainActivity" />
+        <activity
+            android:name="com.polyscievent.tracker.activity.SettingsActivity"
+            android:label="@string/settings"
+            android:parentActivityName="com.polyscievent.tracker.activity.MainActivity" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

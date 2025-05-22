@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-57:12
-INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-57:12
-INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-57:12
-INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-57:12
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-62:12
+INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-62:12
+INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-62:12
+INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:2:1-62:12
 MERGED from [com.google.android.material:material:1.6.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\c97e3a56552c605c20ee292597e4bf82\transformed\material-1.6.1\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\25db12c48ef92eb94dd5711ab09311c4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.5.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\98ad5ca134daee3c5d569ec00c69aded\transformed\appcompat-resources-1.5.1\AndroidManifest.xml:17:1-22:12
@@ -67,8 +67,8 @@ ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:9:5-76
 	android:name
 		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:9:22-73
 application
-ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:11:5-55:19
-INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:11:5-55:19
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:11:5-60:19
+INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:11:5-60:19
 MERGED from [com.google.android.material:material:1.6.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\c97e3a56552c605c20ee292597e4bf82\transformed\material-1.6.1\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.6.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\c97e3a56552c605c20ee292597e4bf82\transformed\material-1.6.1\AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\25db12c48ef92eb94dd5711ab09311c4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -151,6 +151,14 @@ ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:51:9-54:67
 		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:53:13-45
 	android:name
 		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:52:13-54
+activity#com.polyscievent.tracker.activity.SettingsActivity
+ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:56:9-59:67
+	android:parentActivityName
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:59:13-64
+	android:label
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:58:13-45
+	android:name
+		ADDED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:57:13-54
 uses-sdk
 INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml

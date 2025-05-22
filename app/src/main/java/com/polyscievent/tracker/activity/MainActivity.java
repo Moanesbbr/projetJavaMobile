@@ -108,12 +108,10 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.Even
                 if (mShowingAllEvents) {
                     mShowingAllEvents = false;
                     loadEvents();
-                    Toast.makeText(this, R.string.showing_my_events, Toast.LENGTH_SHORT).show();
                 }
                 return true;
             } else if (id == R.id.navigation_settings) {
-                // TODO: Implement settings screen
-                Toast.makeText(this, R.string.settings, Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 return true;
             }
             return false;
