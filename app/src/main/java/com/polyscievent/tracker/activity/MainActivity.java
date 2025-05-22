@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.Even
                 if (!mShowingAllEvents) {
                     mShowingAllEvents = true;
                     loadEvents();
-                    Toast.makeText(this, R.string.showing_all_events, Toast.LENGTH_SHORT).show();
                 }
                 return true;
             } else if (id == R.id.navigation_my_events) {
@@ -283,14 +282,14 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.Even
                 new ExportUtils.ExportCallback() {
                     @Override
                     public void onExportSuccess() {
-                        Toast.makeText(MainActivity.this, 
+                        Toast.makeText(MainActivity.this,
                                 R.string.export_success, Toast.LENGTH_SHORT).show();
                     }
                     
                     @Override
                     public void onExportError(String error) {
                         Toast.makeText(MainActivity.this,
-                                getString(R.string.export_error, error), 
+                                getString(R.string.export_error, error),
                                 Toast.LENGTH_LONG).show();
                     }
                 });
