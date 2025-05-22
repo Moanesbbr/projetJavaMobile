@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    
+
     <item
-        android:id="@+id/action_export"
-        android:title="@string/export_data"
-        android:icon="@android:drawable/ic_menu_share"
-        app:showAsAction="ifRoom" />
-        
+        android:id="@+id/action_wishlist"
+        android:icon="@drawable/ic_favorite_border_24"
+        android:title="@string/wishlist"
+        app:showAsAction="always" />
+
     <item
-        android:id="@+id/action_settings"
-        android:title="@string/settings"
-        android:orderInCategory="100"
+        android:id="@+id/action_sign_out"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/sign_out"
         app:showAsAction="never" />
+
 </menu> 

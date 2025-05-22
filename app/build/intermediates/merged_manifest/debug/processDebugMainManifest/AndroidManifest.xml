@@ -42,6 +42,11 @@
         <activity
             android:name="com.polyscievent.tracker.activity.MainActivity"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.polyscievent.tracker.activity.AddEditEventActivity"
@@ -50,6 +55,10 @@
         <activity
             android:name="com.polyscievent.tracker.activity.ViewEventActivity"
             android:exported="false"
+            android:parentActivityName="com.polyscievent.tracker.activity.MainActivity" />
+        <activity
+            android:name="com.polyscievent.tracker.activity.WishlistActivity"
+            android:label="@string/wishlist"
             android:parentActivityName="com.polyscievent.tracker.activity.MainActivity" />
 
         <provider

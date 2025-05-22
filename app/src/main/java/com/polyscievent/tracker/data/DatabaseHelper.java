@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     
     // Database info
     private static final String DATABASE_NAME = "scievents.db";
-    private static final int DATABASE_VERSION = 4;  // Increased version for image_uri column
+    private static final int DATABASE_VERSION = 5;  // Increased version for wishlist table
     
     // Singleton instance
     private static DatabaseHelper sInstance;
@@ -53,7 +53,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(EventContract.EventEntry.SQL_CREATE_TABLE);
         // Create the users table
         db.execSQL(UserContract.UserEntry.SQL_CREATE_TABLE);
-        Log.d(TAG, "Database created with tables: " + EventContract.EventEntry.TABLE_NAME + ", " + UserContract.UserEntry.TABLE_NAME);
+        // Create the wishlist table
+        db.execSQL(WishlistContract.WishlistEntry.SQL_CREATE_TABLE);
+        Log.d(TAG, "Database created with tables: events, users, wishlist");
     }
     
     @Override
@@ -107,6 +109,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             } catch (Exception e) {
                 Log.e(TAG, "Error adding image_uri column: " + e.getMessage());
             }
+        }
+
+        if (oldVersion < 5) {
+            // Add wishlist table
+            db.execSQL(WishlistContract.WishlistEntry.SQL_CREATE_TABLE);
+            Log.d(TAG, "Added wishlist table during upgrade");
         }
     }
     
@@ -484,5 +492,110 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         
         return deletedRows;
+    }
+
+    // --- WISHLIST MANAGEMENT METHODS ---
+    
+    /**
+     * Add an event to user's wishlist
+     * @param userId The user ID
+     * @param eventId The event ID
+     * @return true if added successfully, false otherwise
+     */
+    public boolean addToWishlist(long userId, long eventId) {
+        // Check if event belongs to user
+        Event event = getEvent(eventId);
+        if (event != null && event.getUserId() == userId) {
+            return false; // Can't wishlist own events
+        }
+        
+        // Check if already in wishlist
+        if (isInWishlist(userId, eventId)) {
+            return false;
+        }
+        
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(WishlistContract.WishlistEntry.COLUMN_NAME_USER_ID, userId);
+        values.put(WishlistContract.WishlistEntry.COLUMN_NAME_EVENT_ID, eventId);
+        values.put(WishlistContract.WishlistEntry.COLUMN_NAME_ADDED_AT, System.currentTimeMillis());
+        
+        long id = db.insert(WishlistContract.WishlistEntry.TABLE_NAME, null, values);
+        return id != -1;
+    }
+    
+    /**
+     * Remove an event from user's wishlist
+     * @param userId The user ID
+     * @param eventId The event ID
+     * @return true if removed successfully, false otherwise
+     */
+    public boolean removeFromWishlist(long userId, long eventId) {
+        SQLiteDatabase db = getWritableDatabase();
+        String selection = WishlistContract.WishlistEntry.COLUMN_NAME_USER_ID + " = ? AND " +
+                WishlistContract.WishlistEntry.COLUMN_NAME_EVENT_ID + " = ?";
+        String[] selectionArgs = { String.valueOf(userId), String.valueOf(eventId) };
+        
+        int count = db.delete(WishlistContract.WishlistEntry.TABLE_NAME, selection, selectionArgs);
+        return count > 0;
+    }
+    
+    /**
+     * Check if an event is in user's wishlist
+     * @param userId The user ID
+     * @param eventId The event ID
+     * @return true if in wishlist, false otherwise
+     */
+    public boolean isInWishlist(long userId, long eventId) {
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = WishlistContract.WishlistEntry.COLUMN_NAME_USER_ID + " = ? AND " +
+                WishlistContract.WishlistEntry.COLUMN_NAME_EVENT_ID + " = ?";
+        String[] selectionArgs = { String.valueOf(userId), String.valueOf(eventId) };
+        
+        Cursor cursor = db.query(
+                WishlistContract.WishlistEntry.TABLE_NAME,
+                null,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null);
+        
+        boolean exists = cursor != null && cursor.getCount() > 0;
+        if (cursor != null) {
+            cursor.close();
+        }
+        return exists;
+    }
+    
+    /**
+     * Get all wishlisted events for a user
+     * @param userId The user ID
+     * @return List of wishlisted events
+     */
+    public List<Event> getWishlistedEvents(long userId) {
+        List<Event> events = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        
+        String query = "SELECT e.* FROM " + EventContract.EventEntry.TABLE_NAME + " e " +
+                "INNER JOIN " + WishlistContract.WishlistEntry.TABLE_NAME + " w " +
+                "ON e." + EventContract.EventEntry._ID + " = w." + WishlistContract.WishlistEntry.COLUMN_NAME_EVENT_ID + " " +
+                "WHERE w." + WishlistContract.WishlistEntry.COLUMN_NAME_USER_ID + " = ? " +
+                "ORDER BY w." + WishlistContract.WishlistEntry.COLUMN_NAME_ADDED_AT + " DESC";
+        
+        Cursor cursor = db.rawQuery(query, new String[]{ String.valueOf(userId) });
+        
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    Event event = createEventFromCursor(cursor);
+                    events.add(event);
+                } while (cursor.moveToNext());
+            }
+        } finally {
+            cursor.close();
+        }
+        
+        return events;
     }
 } 

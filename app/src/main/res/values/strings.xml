@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">eventii07</string>
+    <string name="app_name">Evento</string>
 
     <!-- Auth screens -->
     <string name="app_description">Manage your scientific events easily</string>
@@ -21,7 +21,18 @@
 
     <!-- Main Activity -->
     <string name="add_event">Add Event</string>
-    <string name="no_events">No events , Try adding one</string>
+    <string name="no_events">No events added yet</string>
+    <string name="all_events">All Events</string>
+    <string name="my_events">My Events</string>
+    <string name="showing_all_events">Showing all events</string>
+    <string name="showing_my_events">Showing my events</string>
+    <string name="settings">Settings</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="showing_wishlist">Showing wishlisted events</string>
+    <string name="added_to_wishlist">Added to wishlist</string>
+    <string name="removed_from_wishlist">Removed from wishlist</string>
+    <string name="cant_wishlist_own_event">Cannot add your own event to wishlist</string>
+    <string name="no_wishlisted_events">No wishlisted events yet</string>
 
     <!-- Add/Edit Activity -->
     <string name="add_new_event">Add New Event</string>
@@ -55,7 +66,6 @@
     <string name="export_success">Data exported successfully</string>
     <string name="export_error">Error exporting data: %1$s</string>
     <string name="export_no_events">No events to export</string>
-    <string name="settings">Settings</string>
 
     <!-- Date Formatting -->
     <string name="date_format">MMM dd, yyyy</string>

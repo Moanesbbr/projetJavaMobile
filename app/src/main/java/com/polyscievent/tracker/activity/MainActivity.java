@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.polyscievent.tracker.R;
 import com.polyscievent.tracker.adapter.EventAdapter;
@@ -49,10 +50,12 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.Even
     private TextView mEmptyTextView;
     private ExecutorService mExecutorService;
     private Handler mMainHandler;
+    private BottomNavigationView mBottomNav;
     
     private String mSelectedExportFormat;
     private UserSession mUserSession;
     private User mCurrentUser;
+    private boolean mShowingAllEvents = true;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.Even
         // Get current user details
         mCurrentUser = mUserSession.getUserDetails();
         if (mCurrentUser != null) {
-            setTitle(getString(R.string.app_name) + " - " + mCurrentUser.getFullName());
+            setTitle("Evento");
         }
         
         // Initialize threading components for background operations
@@ -84,16 +87,42 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.Even
         mRecyclerView = findViewById(R.id.recycler_view_events);
         mEmptyTextView = findViewById(R.id.text_view_empty);
         FloatingActionButton fab = findViewById(R.id.fab_add_event);
+        mBottomNav = findViewById(R.id.bottom_navigation);
         
         // Set up RecyclerView
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new EventAdapter(this, this);
         mRecyclerView.setAdapter(mAdapter);
         
+        // Set up bottom navigation
+        mBottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.navigation_home) {
+                if (!mShowingAllEvents) {
+                    mShowingAllEvents = true;
+                    loadEvents();
+                    Toast.makeText(this, R.string.showing_all_events, Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            } else if (id == R.id.navigation_my_events) {
+                if (mShowingAllEvents) {
+                    mShowingAllEvents = false;
+                    loadEvents();
+                    Toast.makeText(this, R.string.showing_my_events, Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            } else if (id == R.id.navigation_settings) {
+                // TODO: Implement settings screen
+                Toast.makeText(this, R.string.settings, Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            return false;
+        });
+        
         // Set up FAB click listener to add a new event
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddEditEventActivity.class);
-            intent.putExtra(Constants.EXTRA_USER_ID, mCurrentUser.getId()); // Pass current user ID to AddEditEventActivity
+            intent.putExtra(Constants.EXTRA_USER_ID, mCurrentUser.getId());
             startActivityForResult(intent, Constants.REQUEST_ADD_EVENT);
         });
     }
@@ -101,19 +130,14 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.Even
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
-        // Add sign out option
-        menu.add(Menu.NONE, R.id.action_sign_out, Menu.NONE, R.string.sign_out);
         return true;
     }
     
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_export) {
-            showExportFormatDialog();
-            return true;
-        } else if (id == R.id.action_settings) {
-            // TODO: Implement settings screen if needed
+        if (id == R.id.action_wishlist) {
+            startActivity(new Intent(this, WishlistActivity.class));
             return true;
         } else if (id == R.id.action_sign_out) {
             signOut();
@@ -150,7 +174,12 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.Even
         // Check if we have events to export
         mExecutorService.execute(() -> {
             DatabaseHelper dbHelper = DatabaseHelper.getInstance(this);
-            final List<Event> events = dbHelper.getAllEvents();
+            final List<Event> events;
+            if (mShowingAllEvents) {
+                events = dbHelper.getAllEvents();
+            } else {
+                events = dbHelper.getEventsByUserId(mCurrentUser.getId());
+            }
             
             mMainHandler.post(() -> {
                 if (events.isEmpty()) {
@@ -163,7 +192,8 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.Even
                     
                     // Set default file name (current date + extension)
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
-                    String fileName = "events_" + sdf.format(new Date()) + extension;
+                    String fileName = (mShowingAllEvents ? "all_events_" : "my_events_") + 
+                            sdf.format(new Date()) + extension;
                     intent.putExtra(Intent.EXTRA_TITLE, fileName);
                     
                     startActivityForResult(intent, REQUEST_EXPORT_FILE);
@@ -199,8 +229,13 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.Even
             // Get the database helper instance
             DatabaseHelper dbHelper = DatabaseHelper.getInstance(MainActivity.this);
             
-            // Get all events from all users, sorted by submission deadline
-            final List<Event> events = dbHelper.getAllEvents();
+            // Get events based on current view mode
+            final List<Event> events;
+            if (mShowingAllEvents) {
+                events = dbHelper.getAllEvents();
+            } else {
+                events = dbHelper.getEventsByUserId(mCurrentUser.getId());
+            }
             
             // Update the UI on the main thread
             mMainHandler.post(() -> {
@@ -317,5 +352,31 @@ public class MainActivity extends AppCompatActivity implements EventAdapter.Even
                 })
                 .setNegativeButton("No", null)
                 .show();
+    }
+
+    /**
+     * Load wishlisted events from the database
+     */
+    private void loadWishlistedEvents() {
+        if (mCurrentUser == null) {
+            return;
+        }
+        
+        mExecutorService.execute(() -> {
+            DatabaseHelper dbHelper = DatabaseHelper.getInstance(MainActivity.this);
+            final List<Event> events = dbHelper.getWishlistedEvents(mCurrentUser.getId());
+            
+            mMainHandler.post(() -> {
+                if (events.isEmpty()) {
+                    mEmptyTextView.setVisibility(View.VISIBLE);
+                    mRecyclerView.setVisibility(View.GONE);
+                } else {
+                    mEmptyTextView.setVisibility(View.GONE);
+                    mRecyclerView.setVisibility(View.VISIBLE);
+                    mAdapter.setEvents(events);
+                }
+                Toast.makeText(this, R.string.showing_wishlist, Toast.LENGTH_SHORT).show();
+            });
+        });
     }
 } 

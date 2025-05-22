@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.polyscievent.tracker.R;
 import com.polyscievent.tracker.activity.AddEditEventActivity;
 import com.polyscievent.tracker.activity.MainActivity;
+import com.polyscievent.tracker.data.DatabaseHelper;
 import com.polyscievent.tracker.model.Event;
 import com.polyscievent.tracker.util.Constants;
 import com.polyscievent.tracker.util.DateUtils;
@@ -32,6 +35,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     private List<Event> mEvents;
     private final EventItemClickListener mListener;
     private final long mCurrentUserId;
+    private final DatabaseHelper mDbHelper;
     
     /**
      * Interface for handling event item clicks
@@ -53,6 +57,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         // Get current user ID from UserSession
         UserSession userSession = new UserSession(context);
         mCurrentUserId = userSession.getUserDetails().getId();
+        mDbHelper = DatabaseHelper.getInstance(context);
     }
     
     @NonNull
@@ -105,6 +110,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         holder.editButton.setVisibility(isCurrentUserEvent ? View.VISIBLE : View.GONE);
         holder.deleteButton.setVisibility(isCurrentUserEvent ? View.VISIBLE : View.GONE);
         
+        // Show wishlist button only for events not owned by current user
+        holder.wishlistButton.setVisibility(isCurrentUserEvent ? View.GONE : View.VISIBLE);
+        
+        // Set wishlist button state
+        boolean isWishlisted = mDbHelper.isInWishlist(mCurrentUserId, event.getId());
+        holder.wishlistButton.setImageResource(
+                isWishlisted ? R.drawable.ic_favorite_24 : R.drawable.ic_favorite_border_24);
+        
         // Handle edit button click
         holder.editButton.setOnClickListener(v -> {
             if (isCurrentUserEvent) {
@@ -119,6 +132,25 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         holder.deleteButton.setOnClickListener(v -> {
             if (isCurrentUserEvent && mListener != null) {
                 mListener.onEventDeleteClick(event);
+            }
+        });
+        
+        // Handle wishlist button click
+        holder.wishlistButton.setOnClickListener(v -> {
+            if (!isCurrentUserEvent) {
+                if (isWishlisted) {
+                    if (mDbHelper.removeFromWishlist(mCurrentUserId, event.getId())) {
+                        holder.wishlistButton.setImageResource(R.drawable.ic_favorite_border_24);
+                        Toast.makeText(mContext, R.string.removed_from_wishlist, Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    if (mDbHelper.addToWishlist(mCurrentUserId, event.getId())) {
+                        holder.wishlistButton.setImageResource(R.drawable.ic_favorite_24);
+                        Toast.makeText(mContext, R.string.added_to_wishlist, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            } else {
+                Toast.makeText(mContext, R.string.cant_wishlist_own_event, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -151,6 +183,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         final View deadlineIndicatorView;
         final Button editButton;
         final Button deleteButton;
+        final ImageButton wishlistButton;
         
         EventViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -164,6 +197,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
             deadlineIndicatorView = itemView.findViewById(R.id.deadline_indicator);
             editButton = itemView.findViewById(R.id.button_edit);
             deleteButton = itemView.findViewById(R.id.button_delete);
+            wishlistButton = itemView.findViewById(R.id.button_wishlist);
         }
     }
 } 

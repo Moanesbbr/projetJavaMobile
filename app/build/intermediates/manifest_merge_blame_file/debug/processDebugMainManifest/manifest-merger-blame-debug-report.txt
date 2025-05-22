@@ -24,7 +24,7 @@
 17-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:9:22-73
 18
 19    <application
-19-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:11:5-46:19
+19-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:11:5-55:19
 20        android:allowBackup="true"
 20-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:12:9-35
 21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -66,50 +66,68 @@
 41            android:exported="false" />
 41-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:30:13-37
 42        <activity
-42-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:32:9-35:20
+42-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:32:9-39:20
 43            android:name="com.polyscievent.tracker.activity.MainActivity"
 43-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:33:13-50
 44            android:exported="true" >
 44-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:34:13-36
-45        </activity>
-46        <activity
-46-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:37:9-40:67
-47            android:name="com.polyscievent.tracker.activity.AddEditEventActivity"
-47-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:38:13-58
-48            android:exported="false"
-48-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:39:13-37
-49            android:parentActivityName="com.polyscievent.tracker.activity.MainActivity" />
-49-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:40:13-64
-50        <activity
-50-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:42:9-45:67
-51            android:name="com.polyscievent.tracker.activity.ViewEventActivity"
-51-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:43:13-55
-52            android:exported="false"
-52-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:44:13-37
-53            android:parentActivityName="com.polyscievent.tracker.activity.MainActivity" />
-53-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:45:13-64
-54
-55        <provider
-55-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-56            android:name="androidx.startup.InitializationProvider"
-56-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-57            android:authorities="com.polyscievent.tracker.androidx-startup"
-57-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-58            android:exported="false" >
-58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-59            <meta-data
-59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-60                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-61                android:value="androidx.startup" />
-61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-62            <meta-data
-62-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\043ae1193fd0f0068354df104ffde5d6\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-63                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-63-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\043ae1193fd0f0068354df104ffde5d6\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-64                android:value="androidx.startup" />
-64-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\043ae1193fd0f0068354df104ffde5d6\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-65        </provider>
-66    </application>
-67
-68</manifest>
+45            <intent-filter>
+45-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:22:13-25:29
+46                <action android:name="android.intent.action.MAIN" />
+46-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:23:17-69
+46-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:23:25-66
+47
+48                <category android:name="android.intent.category.LAUNCHER" />
+48-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:24:17-77
+48-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:24:27-74
+49            </intent-filter>
+50        </activity>
+51        <activity
+51-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:41:9-44:67
+52            android:name="com.polyscievent.tracker.activity.AddEditEventActivity"
+52-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:42:13-58
+53            android:exported="false"
+53-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:43:13-37
+54            android:parentActivityName="com.polyscievent.tracker.activity.MainActivity" />
+54-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:44:13-64
+55        <activity
+55-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:46:9-49:67
+56            android:name="com.polyscievent.tracker.activity.ViewEventActivity"
+56-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:47:13-55
+57            android:exported="false"
+57-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:48:13-37
+58            android:parentActivityName="com.polyscievent.tracker.activity.MainActivity" />
+58-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:49:13-64
+59        <activity
+59-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:51:9-54:67
+60            android:name="com.polyscievent.tracker.activity.WishlistActivity"
+60-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:52:13-54
+61            android:label="@string/wishlist"
+61-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:53:13-45
+62            android:parentActivityName="com.polyscievent.tracker.activity.MainActivity" />
+62-->C:\dev\tekup\java-mobile\app\src\main\AndroidManifest.xml:54:13-64
+63
+64        <provider
+64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+65            android:name="androidx.startup.InitializationProvider"
+65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+66            android:authorities="com.polyscievent.tracker.androidx-startup"
+66-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+67            android:exported="false" >
+67-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+68            <meta-data
+68-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+69                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+69-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+70                android:value="androidx.startup" />
+70-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\0ce9a801f2bacceeacd8b39ffade1436\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+71            <meta-data
+71-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\043ae1193fd0f0068354df104ffde5d6\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+72                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+72-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\043ae1193fd0f0068354df104ffde5d6\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+73                android:value="androidx.startup" />
+73-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Traveltodo\.gradle\caches\8.10.2\transforms\043ae1193fd0f0068354df104ffde5d6\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+74        </provider>
+75    </application>
+76
+77</manifest>

@@ -190,7 +190,7 @@
             app:layout_constraintTop_toTopOf="@+id/text_view_deadline_label"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="Oct 1, 2023" />
-            
+
         <Button
             android:id="@+id/button_delete"
             android:layout_width="wrap_content"
@@ -203,7 +203,7 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             app:layout_constraintEnd_toStartOf="@+id/button_edit"
             app:layout_constraintTop_toBottomOf="@+id/text_view_deadline" />
-            
+
         <Button
             android:id="@+id/button_edit"
             android:layout_width="wrap_content"
@@ -215,6 +215,17 @@
             android:minWidth="60dp"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_deadline" />
+
+        <ImageButton
+            android:id="@+id/button_wishlist"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/wishlist"
+            android:src="@drawable/ic_favorite_border_24"
+            app:layout_constraintEnd_toStartOf="@+id/button_edit"
             app:layout_constraintTop_toBottomOf="@+id/text_view_deadline" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

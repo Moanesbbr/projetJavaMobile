@@ -2360,6 +2360,7 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen recycler_view_padding
 dimen test_dimen
 dimen test_mtrl_calendar_day_cornerSize
 dimen test_navigation_bar_active_item_max_width
@@ -2482,6 +2483,8 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_clock_black_24dp
 drawable ic_event_placeholder
+drawable ic_favorite_24
+drawable ic_favorite_border_24
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -2599,16 +2602,15 @@ id action_bar_title
 id action_container
 id action_context_bar
 id action_divider
-id action_export
 id action_image
 id action_menu_divider
 id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_settings
 id action_sign_out
 id action_text
+id action_wishlist
 id actions
 id activity_chooser_view_content
 id add
@@ -2635,6 +2637,7 @@ id beginning
 id bestChoice
 id blocking
 id bottom
+id bottom_navigation
 id bounce
 id bounceBoth
 id bounceEnd
@@ -2647,6 +2650,7 @@ id button_pick_image
 id button_save
 id button_sign_in
 id button_sign_up
+id button_wishlist
 id cache_measures
 id callMeasure
 id cancel_button
@@ -2872,6 +2876,9 @@ id navigation_bar_item_labels_group
 id navigation_bar_item_large_label_view
 id navigation_bar_item_small_label_view
 id navigation_header_container
+id navigation_home
+id navigation_my_events
+id navigation_settings
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
@@ -2909,6 +2916,7 @@ id radio
 id ratio
 id rectangles
 id recycler_view_events
+id recycler_view_wishlist
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3022,6 +3030,7 @@ id text_view_days_until_deadline
 id text_view_deadline
 id text_view_deadline_label
 id text_view_empty
+id text_view_empty_wishlist
 id text_view_event_name
 id text_view_forgot_password
 id text_view_location
@@ -3176,6 +3185,7 @@ layout activity_main
 layout activity_sign_in
 layout activity_sign_up
 layout activity_view_event
+layout activity_wishlist
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3267,6 +3277,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu bottom_nav_menu
 menu main_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
@@ -3300,6 +3311,8 @@ string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string add_event
 string add_new_event
+string added_to_wishlist
+string all_events
 string already_have_account
 string androidx_startup
 string app_description
@@ -3309,6 +3322,7 @@ string authentication_failed
 string bottom_sheet_behavior
 string bottomsheet_action_expand_halfway
 string cancel
+string cant_wishlist_own_event
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
@@ -3432,8 +3446,10 @@ string mtrl_picker_toggle_to_day_selection
 string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
 string mtrl_timepicker_confirm
+string my_events
 string no_account
 string no_events
+string no_wishlisted_events
 string password
 string password_mismatch
 string password_toggle_content_description
@@ -3444,15 +3460,20 @@ string path_password_strike_through
 string pick_date
 string pick_image
 string registration_success
+string removed_from_wishlist
 string save
 string search_menu_title
 string settings
+string showing_all_events
+string showing_my_events
+string showing_wishlist
 string sign_in
 string sign_out
 string sign_up
 string status_bar_notification_info_overflow
 string submission_deadline
 string view_event
+string wishlist
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
